@@ -1,10 +1,10 @@
 import {MigrationInterface, QueryRunner, Table, TableForeignKey, TableIndex} from 'typeorm';
 
-export class UserHasNoteDashboard1578042908094 implements MigrationInterface {
+export class UserHasNoteboard1578042908094 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<any> {
         await queryRunner.createTable(new Table({
-            name: 'user_has_note_dashboard',
+            name: 'user_has_note_board',
             columns: [
                 {
                     name: 'user_id',
@@ -12,36 +12,36 @@ export class UserHasNoteDashboard1578042908094 implements MigrationInterface {
                     unsigned: true
                 },
                 {
-                    name: 'note_dashboard_id',
+                    name: 'note_board_id',
                     type: 'int',
                     unsigned: true
                 }
             ]
         }));
-        await queryRunner.createForeignKey('user_has_note_dashboard', new TableForeignKey({
+        await queryRunner.createForeignKey('user_has_note_board', new TableForeignKey({
             columnNames: ['user_id'],
             referencedTableName: 'users',
             referencedColumnNames: ['id'],
             onDelete: 'CASCADE'
         }));
 
-        await queryRunner.createForeignKey('user_has_note_dashboard', new TableForeignKey({
-            columnNames: ['note_dashboard_id'],
-            referencedTableName: 'note_dashboards',
+        await queryRunner.createForeignKey('user_has_note_board', new TableForeignKey({
+            columnNames: ['note_board_id'],
+            referencedTableName: 'note_board',
             referencedColumnNames: ['id'],
             onDelete: 'CASCADE'
         }));
 
-        await queryRunner.createIndex('user_has_note_dashboard', new TableIndex({
-            name: 'unique_user_id_note_dashboard_id',
-            columnNames: ['user_id', 'note_dashboard_id'],
+        await queryRunner.createIndex('user_has_note_board', new TableIndex({
+            name: 'unique_user_id_note_board_id',
+            columnNames: ['user_id', 'note_board_id'],
             isUnique: true
         }));
 
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {
-        await queryRunner.dropTable('user_has_note_dashboard', true);
+        await queryRunner.dropTable('user_has_note_board', true);
     }
 
 }

@@ -1,11 +1,11 @@
 import {MigrationInterface, QueryRunner, Table} from 'typeorm';
 
-export class NoteDashboard1578041051139 implements MigrationInterface {
+export class NoteBoard1578041051139 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<any> {
 
         await queryRunner.createTable(new Table({
-          name: 'note_dashboards',
+          name: 'note_boards',
             columns: [
                 {
                     name: 'id',
@@ -26,6 +26,6 @@ export class NoteDashboard1578041051139 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<any> {
-        await queryRunner.dropTable('note_dashboards', true);
+        await queryRunner.dropTable('note_boards', true);
     }
 }

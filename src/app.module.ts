@@ -13,6 +13,8 @@ import {userDashboardItemsLoader, userNoteDashboardsLoader} from './database/loa
 import {dashboardItemUsersLoader} from './database/loaders/dashboard-items.loader';
 import { NoteDashboardsModule } from './modules/note-dashboards/note-dashboards.module';
 import {noteBoardListLoader, noteBoardUsersLoader} from './database/loaders/note-board.loader';
+import {noteListNoteLoader} from './database/loaders/note-list.loader';
+import { NoteListsModule } from './modules/note-lists/note-lists.module';
 
 @Module({
   imports: [
@@ -27,7 +29,8 @@ import {noteBoardListLoader, noteBoardUsersLoader} from './database/loaders/note
         dashboardItemUsersLoader: dashboardItemUsersLoader(),
         userNoteDashboardsLoader: userNoteDashboardsLoader(),
         noteBoardListLoader: noteBoardListLoader(),
-        noteBoardUsersLoader: noteBoardUsersLoader()
+        noteBoardUsersLoader: noteBoardUsersLoader(),
+        noteListNoteLoader: noteListNoteLoader()
       }),
     }),
     DatabaseModule,
@@ -37,7 +40,8 @@ import {noteBoardListLoader, noteBoardUsersLoader} from './database/loaders/note
       isGlobal: true
     }),
     DashboardItemsModule,
-    NoteDashboardsModule
+    NoteDashboardsModule,
+    NoteListsModule
   ],
   controllers: [AppController],
   providers: [AppService, GqlAuthGuard],

@@ -11,6 +11,12 @@ export interface DashboardItem {
     users: User[];
 }
 
+export interface Note {
+    id: string;
+    title: string;
+    description: string;
+}
+
 export interface NoteBoard {
     id: number;
     name: string;
@@ -21,6 +27,7 @@ export interface NoteBoard {
 export interface NoteList {
     id: string;
     name: string;
+    notes: Note[];
 }
 
 export interface IQuery {
